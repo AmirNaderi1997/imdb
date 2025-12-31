@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CineScope · Modern Movie Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-texture"></div>
+  <div class="noise"></div>
+
+  <header class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="hero__content">
+      <p class="eyebrow">Powered by OMDb · Live posters · Trailer links</p>
+      <h1>CineScope</h1>
+      <p class="lede">Search, spotlight, and save cinema gems. Real movie art, instant details, and a curated watchlist built for GitHub Pages.</p>
+      <form id="search-form" class="search">
+        <input id="search-input" type="search" placeholder="Search movies by title…" autocomplete="off" aria-label="Search movies">
+        <button type="submit">Search</button>
+      </form>
+      <div id="hero-spotlight" class="hero__spotlight">
+        <div class="spotlight__poster skeleton"></div>
+        <div class="spotlight__meta">
+          <p class="pill">Spotlight</p>
+          <h2 id="spotlight-title">Loading…</h2>
+          <p id="spotlight-plot" class="muted">Fetching a standout film for you.</p>
+          <div class="spotlight__actions">
+            <a id="spotlight-trailer" class="ghost pill" target="_blank" rel="noopener">Trailer</a>
+            <button id="spotlight-watchlist" class="pill">Add to watchlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Curated set</p>
+          <h3>Trending &amp; essentials</h3>
+        </div>
+        <div class="section__actions">
+          <button id="refresh-trending" class="icon-btn" title="Refresh picks">⟳</button>
+          <button id="load-more-trending" class="ghost pill">Load more</button>
+        </div>
+      </div>
+      <div id="trending-grid" class="grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">IMDb Top 250</p>
+          <h3>Legendary cinema</h3>
+        </div>
+        <div class="section__actions">
+          <button id="more-top250" class="ghost pill">Load next 20</button>
+          <button id="reset-top250" class="icon-btn" title="Back to start">↺</button>
+        </div>
+      </div>
+      <div id="top250-grid" class="grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Future slate</p>
+          <h3>Upcoming &amp; hype</h3>
+        </div>
+        <div class="section__actions">
+          <button id="refresh-upcoming" class="icon-btn" title="Refresh upcoming">⟳</button>
+        </div>
+      </div>
+      <div id="upcoming-grid" class="grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Live search</p>
+          <h3>Results</h3>
+        </div>
+        <p id="results-label" class="muted">Try a search like “Batman”, “Interstellar”, or “Spirited Away”.</p>
+      </div>
+      <div id="results-grid" class="grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__header">
+        <div>
+          <p class="eyebrow">Personal queue</p>
+          <h3>Watchlist</h3>
+        </div>
+        <button id="clear-watchlist" class="ghost pill">Clear</button>
+      </div>
+      <div id="watchlist-grid" class="grid"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal__dialog">
+      <button id="modal-close" class="icon-btn close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">This experience needs JavaScript for live movie data.</div>
+  </noscript>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
